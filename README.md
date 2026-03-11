@@ -193,6 +193,11 @@ When working with ABAP objects, you may encounter errors related to unknown fiel
 *   **`GetStructure`:** Use this tool to retrieve the structure of an ABAP Dictionary structure, including its field names and data types. This is helpful for verifying the correct fields to use in your `SELECT` statements.
 *    If you need to inspect an include structure, you may need to use `searchObject` to find the include and then use `GetTypeInfo` or `GetStructure`.
 
+## SAP Change Safety Policy
+The following rules always apply before any modifying or destructive action in the SAP system
+(e.g., deleting, changing, creating objects, releasing transports, database modifications). Before executing the action: Clearly explain what you intend to do.  List all affected objects including their name and type. Specify everytime in which SAP system (SID) and in which client (e.g., 001) the action will be executed. Wait for my explicit confirmation before executing the action.
+Additional rule: Never make assumptions about what might be intended. If something is unclear, ask for clarification first.
+
 ```
 
 ## Contributing
