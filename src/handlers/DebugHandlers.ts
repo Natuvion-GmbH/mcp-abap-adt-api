@@ -369,17 +369,7 @@ export class DebugHandlers extends BaseHandler {
                 args.checkConflict
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -401,17 +391,7 @@ export class DebugHandlers extends BaseHandler {
                 args.isNotifiedOnConflict
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -431,17 +411,7 @@ export class DebugHandlers extends BaseHandler {
                 args.user
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -467,17 +437,7 @@ export class DebugHandlers extends BaseHandler {
                 args.syncScupeUrl
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -499,17 +459,7 @@ export class DebugHandlers extends BaseHandler {
                 args.scope
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -529,17 +479,7 @@ export class DebugHandlers extends BaseHandler {
                 args.dynproDebugging
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -554,17 +494,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerSaveSettings(args.settings);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -579,17 +509,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerStackTrace(args.semanticURIs);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -604,17 +524,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerVariables(args.parents);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -629,17 +539,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerChildVariables(args.parent);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -654,17 +554,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerStep(args.steptype, args.url);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -679,17 +569,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerGoToStack(args.urlOrPosition);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -704,17 +584,7 @@ export class DebugHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.debuggerSetVariableValue(args.variableName, args.value);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

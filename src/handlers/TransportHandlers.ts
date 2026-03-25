@@ -313,17 +313,7 @@ export class TransportHandlers extends BaseHandler {
                 args.operation
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            transportInfo
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', transportInfo };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -343,18 +333,7 @@ export class TransportHandlers extends BaseHandler {
                 args.transportLayer
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            transportNumber: transportResult,
-                            message: 'Transport created successfully'
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', transportNumber: transportResult, message: 'Transport created successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -369,17 +348,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const hasConfig = await this.adtclient.hasTransportConfig();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            hasConfig
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', hasConfig };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -394,17 +363,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const configurations = await this.adtclient.transportConfigurations();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            configurations
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', configurations };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -419,17 +378,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const configuration = await this.adtclient.getTransportConfiguration(args.url);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            configuration
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', configuration };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -444,17 +393,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.setTransportsConfig(args.uri, args.etag, args.config);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -469,17 +408,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.createTransportsConfig();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -494,17 +423,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const transports = await this.adtclient.userTransports(args.user, args.targets);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            transports
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', transports };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -519,17 +438,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const transports = await this.adtclient.transportsByConfig(args.configUri, args.targets);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            transports
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', transports };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -544,17 +453,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.transportDelete(args.transportNumber);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -569,17 +468,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.transportRelease(args.transportNumber, args.ignoreLocks, args.IgnoreATC);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -594,17 +483,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.transportSetOwner(args.transportNumber, args.targetuser);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -619,17 +498,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.transportAddUser(args.transportNumber, args.user);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -644,17 +513,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const users = await this.adtclient.systemUsers();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            users
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', users };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -669,17 +528,7 @@ export class TransportHandlers extends BaseHandler {
         try {
             const reference = await this.adtclient.transportReference(args.pgmid, args.obj_wbtype, args.obj_name, args.tr_number);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            reference
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', reference };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

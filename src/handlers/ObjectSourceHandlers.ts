@@ -51,17 +51,7 @@ export class ObjectSourceHandlers extends BaseHandler {
     try {
       const source = await this.adtclient.getObjectSource(args.objectSourceUrl, args.options);
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              status: 'success',
-              source
-            })
-          }
-        ]
-      };
+      return { status: 'success', source };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(
@@ -81,17 +71,7 @@ export class ObjectSourceHandlers extends BaseHandler {
         args.transport
       );
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              status: 'success',
-              updated: true
-            })
-          }
-        ]
-      };
+      return { status: 'success', updated: true };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(

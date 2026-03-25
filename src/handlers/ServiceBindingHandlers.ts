@@ -82,17 +82,7 @@ export class ServiceBindingHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.publishServiceBinding(args.name, args.version);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -107,17 +97,7 @@ export class ServiceBindingHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.unPublishServiceBinding(args.name, args.version);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -132,17 +112,7 @@ export class ServiceBindingHandlers extends BaseHandler {
         try {
             const details = await this.adtclient.bindingDetails(args.binding, args.index);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            details
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', details };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

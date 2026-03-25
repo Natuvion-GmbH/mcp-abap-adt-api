@@ -91,17 +91,7 @@ export class RenameHandlers extends BaseHandler {
                 args.endColumn
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -119,17 +109,7 @@ export class RenameHandlers extends BaseHandler {
                 args.transport
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -144,17 +124,7 @@ export class RenameHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.renameExecute(args.refactoring);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

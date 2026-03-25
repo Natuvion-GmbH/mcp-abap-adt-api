@@ -73,17 +73,7 @@ export class RefactorHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.extractMethodEvaluate(args.uri, args.range);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -98,17 +88,7 @@ export class RefactorHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.extractMethodPreview(args.proposal);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -123,17 +103,7 @@ export class RefactorHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.extractMethodExecute(args.refactoring);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

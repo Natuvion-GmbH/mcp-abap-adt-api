@@ -138,12 +138,7 @@ export class ObjectManagementHandlers extends BaseHandler {
 
       const result = await this.adtclient.activate(objects, args.preauditRequested);
       this.trackRequest(startTime, true);
-      return {
-        content: [{
-          type: 'text',
-          text: JSON.stringify(result)
-        }]
-      };
+      return result;
     } catch (error: any) {
       this.trackRequest(startTime, false);
       if (error instanceof McpError) {
@@ -170,12 +165,7 @@ export class ObjectManagementHandlers extends BaseHandler {
         args.preauditRequested
       );
       this.trackRequest(startTime, true);
-      return {
-        content: [{
-          type: 'text',
-          text: JSON.stringify(result)
-        }]
-      };
+      return result;
     } catch (error: any) {
       this.trackRequest(startTime, false);
       if (error instanceof McpError) {
@@ -193,12 +183,7 @@ export class ObjectManagementHandlers extends BaseHandler {
     try {
       const result: InactiveObjectRecord[] = await this.adtclient.inactiveObjects();
       this.trackRequest(startTime, true);
-      return {
-        content: [{
-          type: 'text',
-          text: JSON.stringify(result)
-        }]
-      };
+      return result;
     } catch (error: any) {
       this.trackRequest(startTime, false);
       if (error instanceof McpError) {

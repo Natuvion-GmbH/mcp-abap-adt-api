@@ -292,17 +292,7 @@ export class GitHandlers extends BaseHandler {
         try {
             const repos = await this.adtclient.gitRepos();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            repos
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', repos };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -321,17 +311,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            repoInfo
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', repoInfo };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -353,17 +333,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -384,17 +354,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -409,17 +369,7 @@ export class GitHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.gitUnlinkRepo(args.repoId);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -438,17 +388,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -468,17 +408,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -497,17 +427,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -526,17 +446,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            repoInfo
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', repoInfo };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -557,17 +467,7 @@ export class GitHandlers extends BaseHandler {
                 args.password
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

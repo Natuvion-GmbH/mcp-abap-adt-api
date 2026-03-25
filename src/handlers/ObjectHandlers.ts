@@ -104,18 +104,7 @@ export class ObjectHandlers extends BaseHandler {
         try {
             const structure = await this.adtclient.objectStructure(args.objectUrl, args.version);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            structure,
-                            message: 'Object structure retrieved successfully'
-                        }, null, 2)
-                    }
-                ]
-            };
+            return { status: 'success', structure, message: 'Object structure retrieved successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             const errorMessage = error.message || 'Unknown error';
@@ -132,18 +121,7 @@ export class ObjectHandlers extends BaseHandler {
         try {
             const path = await this.adtclient.findObjectPath(args.objectUrl);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            path,
-                            message: 'Object path found successfully'
-                        }, null, 2)
-                    }
-                ]
-            };
+            return { status: 'success', path, message: 'Object path found successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             const errorMessage = error.message || 'Unknown error';
@@ -164,18 +142,7 @@ export class ObjectHandlers extends BaseHandler {
                 args.max
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            results,
-                            message: 'Object search completed successfully'
-                        }, null, 2)
-                    }
-                ]
-            };
+            return { status: 'success', results, message: 'Object search completed successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             const errorMessage = error.message || 'Unknown error';
@@ -192,18 +159,7 @@ export class ObjectHandlers extends BaseHandler {
         try {
             const types = await this.adtclient.objectTypes();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            types,
-                            message: 'Object types retrieved successfully'
-                        }, null, 2)
-                    }
-                ]
-            };
+            return { status: 'success', types, message: 'Object types retrieved successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             const errorMessage = error.message || 'Unknown error';
@@ -220,18 +176,7 @@ export class ObjectHandlers extends BaseHandler {
         try {
             const ticket = await this.adtclient.reentranceTicket();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            ticket,
-                            message: 'Reentrance ticket retrieved successfully'
-                        }, null, 2)
-                    }
-                ]
-            };
+            return { status: 'success', ticket, message: 'Reentrance ticket retrieved successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             const errorMessage = error.message || 'Unknown error';

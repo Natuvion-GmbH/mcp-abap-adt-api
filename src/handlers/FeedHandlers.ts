@@ -47,17 +47,7 @@ export class FeedHandlers extends BaseHandler {
         try {
             const feeds = await this.adtclient.feeds();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            feeds
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', feeds };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -72,17 +62,7 @@ export class FeedHandlers extends BaseHandler {
         try {
             const dumps = await this.adtclient.dumps(args.query);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            dumps
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', dumps };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

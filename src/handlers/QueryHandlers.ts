@@ -82,17 +82,7 @@ export class QueryHandlers extends BaseHandler {
                 args.sqlQuery
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new Error(`Failed to retrieve table contents: ${error.message || 'Unknown error'}`);
@@ -108,17 +98,7 @@ export class QueryHandlers extends BaseHandler {
                 args.decode
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new Error(`Failed to run query: ${error.message || 'Unknown error'}`);
