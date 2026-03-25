@@ -67,17 +67,7 @@ export class PrettyPrinterHandlers extends BaseHandler {
         try {
             const settings = await this.adtclient.prettyPrinterSetting();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            settings
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', settings };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -92,17 +82,7 @@ export class PrettyPrinterHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.setPrettyPrinterSetting(args.indent, args.style);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -117,17 +97,7 @@ export class PrettyPrinterHandlers extends BaseHandler {
         try {
             const source = await this.adtclient.prettyPrinter(args.source);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            source
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', source };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

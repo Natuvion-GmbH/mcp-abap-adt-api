@@ -42,17 +42,7 @@ export class RevisionHandlers extends BaseHandler {
         try {
             const revisions = await this.adtclient.revisions(args.objectUrl, args.clsInclude);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            revisions
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', revisions };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

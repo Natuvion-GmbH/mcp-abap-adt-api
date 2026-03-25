@@ -85,17 +85,7 @@ export class NodeHandlers extends BaseHandler {
                 args.parentnodes
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            nodeContents
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', nodeContents };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -110,17 +100,7 @@ export class NodeHandlers extends BaseHandler {
         try {
             const mainPrograms = await this.adtclient.mainPrograms(args.includeUrl);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            mainPrograms
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', mainPrograms };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

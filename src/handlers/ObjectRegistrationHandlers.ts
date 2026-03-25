@@ -65,15 +65,7 @@ export class ObjectRegistrationHandlers extends BaseHandler {
     try {
       const info = await this.adtclient.objectRegistrationInfo(args.objectUrl);
       this.trackRequest(startTime, true);
-      return {
-        content: [{
-          type: 'text',
-          text: JSON.stringify({
-            status: 'success',
-            info
-          })
-        }]
-      };
+      return { status: 'success', info };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(
@@ -88,15 +80,7 @@ export class ObjectRegistrationHandlers extends BaseHandler {
     try {
       const result = await this.adtclient.validateNewObject(args.options);
       this.trackRequest(startTime, true);
-      return {
-        content: [{
-          type: 'text',
-          text: JSON.stringify({
-            status: 'success',
-            result
-          })
-        }]
-      };
+      return { status: 'success', result };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(
@@ -119,15 +103,7 @@ export class ObjectRegistrationHandlers extends BaseHandler {
         args.transport
       );
       this.trackRequest(startTime, true);
-      return {
-        content: [{
-          type: 'text',
-          text: JSON.stringify({
-            status: 'success',
-            result
-          })
-        }]
-      };
+      return { status: 'success', result };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(

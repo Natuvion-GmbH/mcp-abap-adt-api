@@ -50,14 +50,7 @@ export class AuthHandlers extends BaseHandler {
     try {
       const loginResult = await this.adtclient.login();
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify(loginResult)
-          }
-        ]
-      };
+      return loginResult;
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(
@@ -72,14 +65,7 @@ export class AuthHandlers extends BaseHandler {
     try {
       await this.adtclient.logout();
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({ status: 'Logged out successfully' })
-          }
-        ]
-      };
+      return { status: 'Logged out successfully' };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(
@@ -94,14 +80,7 @@ export class AuthHandlers extends BaseHandler {
     try {
       await this.adtclient.dropSession();
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text', 
-            text: JSON.stringify({ status: 'Session cleared' })
-          }
-        ]
-      };
+      return { status: 'Session cleared' };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(

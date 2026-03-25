@@ -58,18 +58,7 @@ export class ObjectLockHandlers extends BaseHandler {
     try {
       const lockResult = await this.adtclient.lock(args.objectUrl, args.accessMode);
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              status: 'success',
-              lockHandle: lockResult.LOCK_HANDLE,
-              message: 'Object locked successfully'
-            })
-          }
-        ]
-      };
+      return { status: 'success', lockHandle: lockResult.LOCK_HANDLE, message: 'Object locked successfully' };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(
@@ -84,17 +73,7 @@ export class ObjectLockHandlers extends BaseHandler {
     try {
       await this.adtclient.unLock(args.objectUrl, args.lockHandle);
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              status: 'success',
-              message: 'Object unlocked successfully'
-            })
-          }
-        ]
-      };
+      return { status: 'success', message: 'Object unlocked successfully' };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       throw new McpError(

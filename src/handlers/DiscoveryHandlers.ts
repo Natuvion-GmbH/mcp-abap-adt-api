@@ -108,17 +108,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const details = await this.adtclient.featureDetails(args.title);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            details
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', details };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -133,17 +123,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const details = await this.adtclient.collectionFeatureDetails(args.url);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            details
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', details };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -158,17 +138,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const collection = await this.adtclient.findCollectionByUrl(args.url);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            collection
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', collection };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -183,17 +153,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const types = await this.adtclient.loadTypes();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            types
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', types };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -208,17 +168,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const discovery = await this.adtclient.adtDiscovery();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            discovery
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', discovery };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -233,17 +183,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const discovery = await this.adtclient.adtCoreDiscovery();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            discovery
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', discovery };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -258,17 +198,7 @@ export class DiscoveryHandlers extends BaseHandler {
         try {
             const graph = await this.adtclient.adtCompatibiliyGraph();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            graph
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', graph };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

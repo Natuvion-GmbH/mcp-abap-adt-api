@@ -231,17 +231,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.syntaxCheck(args.cdsUrl);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -255,17 +245,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.syntaxCheck(args.url, args?.mainUrl, args?.code, args?.mainProgram, args?.version);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -285,17 +265,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
                 args.column
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -318,17 +288,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
                 args.mainProgram
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -347,17 +307,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
                 args.column
             );
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -372,17 +322,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.syntaxCheckTypes();
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -397,17 +337,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.codeCompletionFull(args.sourceUrl, args.source, args.line, args.column, args.patternKey);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -422,17 +352,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.runClass(args.className);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -447,17 +367,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.codeCompletionElement(args.sourceUrl, args.source, args.line, args.column);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -472,17 +382,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.usageReferenceSnippets(args.references);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -497,17 +397,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.fixProposals(args.url, args.source, args.line, args.column);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -522,17 +412,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.fixEdits(args.proposal, args.source);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -547,17 +427,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.fragmentMappings(args.url, args.type, args.name);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -572,17 +442,7 @@ export class CodeAnalysisHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.abapDocumentation(args.objectUri, args.body, args.line, args.column, args.language);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

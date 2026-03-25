@@ -50,18 +50,7 @@ export class ObjectDeletionHandlers extends BaseHandler {
         args.transport
       );
       this.trackRequest(startTime, true);
-      return {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              status: 'success',
-              result,
-              message: 'Object deleted successfully'
-            }, null, 2)
-          }
-        ]
-      };
+      return { status: 'success', result, message: 'Object deleted successfully' };
     } catch (error: any) {
       this.trackRequest(startTime, false);
       const errorMessage = error.message || 'Unknown error';

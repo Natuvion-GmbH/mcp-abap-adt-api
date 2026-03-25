@@ -108,17 +108,7 @@ export class UnitTestHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.unitTestRun(args.url, args.flags);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -133,17 +123,7 @@ export class UnitTestHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.unitTestEvaluation(args.clas, args.flags);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -158,17 +138,7 @@ export class UnitTestHandlers extends BaseHandler {
         try {
             const markers = await this.adtclient.unitTestOccurrenceMarkers(args.url, args.source);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            markers
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', markers };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -183,18 +153,7 @@ export class UnitTestHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.createTestInclude(args.clas, args.lockHandle, args.transport);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result,
-                            message: 'Test include created successfully'
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result, message: 'Test include created successfully' };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(

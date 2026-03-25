@@ -180,17 +180,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const traces = await this.adtclient.tracesList(args.user);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            traces
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', traces };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -205,17 +195,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const requests = await this.adtclient.tracesListRequests(args.user);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            requests
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', requests };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -230,17 +210,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const hitList = await this.adtclient.tracesHitList(args.id, args.withSystemEvents);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            hitList
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', hitList };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -255,17 +225,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const dbAccess = await this.adtclient.tracesDbAccess(args.id, args.withSystemEvents);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            dbAccess
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', dbAccess };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -280,17 +240,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const statements = await this.adtclient.tracesStatements(args.id, args.options);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            statements
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', statements };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -305,17 +255,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.tracesSetParameters(args.parameters);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -330,17 +270,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.tracesCreateConfiguration(args.config);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -355,17 +285,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.tracesDeleteConfiguration(args.id);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
@@ -380,17 +300,7 @@ export class TraceHandlers extends BaseHandler {
         try {
             const result = await this.adtclient.tracesDelete(args.id);
             this.trackRequest(startTime, true);
-            return {
-                content: [
-                    {
-                        type: 'text',
-                        text: JSON.stringify({
-                            status: 'success',
-                            result
-                        })
-                    }
-                ]
-            };
+            return { status: 'success', result };
         } catch (error: any) {
             this.trackRequest(startTime, false);
             throw new McpError(
